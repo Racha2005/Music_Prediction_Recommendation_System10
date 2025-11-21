@@ -1,7 +1,7 @@
 # **Music Prediction & Recommendation Analysis**
 
 This project is a complete, end-to-end music intelligence system combining data analytics, professional data visualization, machine-learning predictions, and an interactive recommendation engine.  
-It includes two interfaces — a **Streamlit Dashboard** and a **Tkinter Desktop Application** — both styled with a modern **Dark Neon** theme to provide a clean and engaging visual experience.
+It includes two interfaces — a **Streamlit Dashboard** and a **Tkinter Desktop Application** — both styled with a modern theme to provide a clean and engaging visual experience.
 
 The goal of this project is to demonstrate how raw music data can be transformed into meaningful insights and user-facing tools using data science.
 
@@ -23,7 +23,7 @@ The entire system is built to be simple to use, while still being technically ri
 
 ## **What This Project Includes**
 
-### **1. Streamlit Dashboard (Dark-Neon BI Theme)**  
+### **1. Streamlit Dashboard**  
 The Streamlit dashboard acts as a complete analytics and recommendation platform. It contains:
 
 #### **Interactive KPI Cards**
