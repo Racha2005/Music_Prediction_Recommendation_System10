@@ -1,4 +1,4 @@
-# 🎵 Music Prediction & Recommendation Analysis Project (Dark Neon)
+# 🎵 Music Prediction & Recommendation Analysis Project
 
 ### ▶ Run the Streamlit Dashboard
 ```
