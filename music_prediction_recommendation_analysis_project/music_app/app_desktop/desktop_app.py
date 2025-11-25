@@ -13,7 +13,7 @@ DATA_PATH = os.path.abspath(
 class DesktopApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Music Desktop App - Dark Neon")
+        self.title("Music Desktop App")
         self.geometry("1000x650")
         self.configure(bg="#0b0f17")
 
@@ -23,7 +23,7 @@ class DesktopApp(tk.Tk):
 
     def create_widgets(self):
         header = tk.Label(
-            self, text="Music Desktop App — Dark Neon",
+            self, text="Music Prediction & Recommendation Desktop App",
             bg="#0b0f17", fg="#00e5ff", font=("Segoe UI", 18, "bold")
         )
         header.pack(pady=8)
