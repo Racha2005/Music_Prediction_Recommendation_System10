@@ -10,7 +10,7 @@ import imagehash
 # ---------------------------
 st.set_page_config(
     layout="wide",
-    page_title="Music Prediction & Recommendation Dashboard",
+    page_title="Music Prediction & Recommendation Analysis Dashboard",
     page_icon="🎧"
 )
 
@@ -62,7 +62,7 @@ for c, img in zip(cols, banners):
     except:
         pass
 
-st.markdown("<div class='big-title'>Music Prediction & Recommendation Dashboard</div>", unsafe_allow_html=True)
+st.markdown("<div class='big-title'>Music Prediction & Recommendation Analysis Dashboard</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtle'>Colorful BI layout — KPIs, charts, clusters & artwork similarity</div>", unsafe_allow_html=True)
 
 
@@ -328,7 +328,7 @@ with tab2:
 
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
-        img1 = Image.open(selected)
+        img1 = Image.open(os.path.join("music_app", "assets", selected))
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
         # COMPUTE SIMILARITY

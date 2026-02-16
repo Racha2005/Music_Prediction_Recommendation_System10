@@ -10,7 +10,7 @@ DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "music_d
 class DesktopApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Music Prediction & Recommendation Desktop App")
+        self.title("Music Prediction & Recommendation Analysis Desktop App")
         self.geometry("1000x650")
         self.configure(bg="#0b0f17")
 
@@ -22,7 +22,7 @@ class DesktopApp(tk.Tk):
         self.create_widgets()
 
     def create_widgets(self):
-        header = tk.Label(self, text="Music Prediction & Recommendation Desktop App", bg="#0b0f17", fg="#00e5ff",
+        header = tk.Label(self, text="Music Prediction & Recommendation Analysis Desktop App", bg="#0b0f17", fg="#00e5ff",
                           font=("Segoe UI", 18, "bold"))
         header.pack(pady=8)
 
