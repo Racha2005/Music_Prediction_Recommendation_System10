@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 from PIL import Image
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(file))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSETS_DIR = os.path.join(BASE_DIR, "..", "assets")
 import imagehash
 
