@@ -331,7 +331,9 @@ with tab2:
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
         img_path = os.path.join(ASSETS_DIR, selected + ".jpg")
+        img_path = os.path.abspath(img_path)
         img1 = Image.open(img_path)
+
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
         # COMPUTE SIMILARITY
