@@ -357,7 +357,15 @@ with tab2:
         df_sorted = df_hash.sort_values("distance")
 
         similar_file = df_sorted.iloc[1]["file"]
-        img2 = Image.open(similar_file)
+        similar_filename = os.path.basename(similar_file)
+        similar_path = os.path.join(ASSETS_DIR, similar_filename)
+
+        if os.path.exists(similar_path):
+            img2 = Image.open(similar_path)
+        else:
+            st.warning(f"Similar image not found: {similar_filename}")
+            img2 = None
+
         sim_d = df_sorted.iloc[1]["distance"]
 
         colA, colB = st.columns(2)
