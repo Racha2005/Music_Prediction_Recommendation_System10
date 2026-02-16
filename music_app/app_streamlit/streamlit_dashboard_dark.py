@@ -3,11 +3,8 @@ import pandas as pd
 import plotly.express as px
 from PIL import Image
 import os
-<<<<<<< HEAD
-=======
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSETS_DIR = os.path.join(BASE_DIR, "..", "assets")
->>>>>>> 23a9cc4dfe6aaa3daeba67fe0d7e50a70e11569b
 import imagehash
 
 # ---------------------------
@@ -334,8 +331,22 @@ with tab2:
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
 
-        img1 = Image.open(selected)
+        # LOAD SELECTED IMAGE FROM ASSETS FOLDER
+        try:
+            img_filename = os.path.basename(selected)
+            img_path = os.path.join(ASSETS_DIR, img_filename)
 
+            if os.path.exists(img_path):
+                img1 = Image.open(img_path)
+            else:
+                st.warning(f"Image not found: {img_filename}")
+                img1 = None
+
+        except Exception as e:
+            st.error(f"Image loading error: {e}")
+            img1 = None
+
+        # HASH MATCHING
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
         def dist(h1, h2):
