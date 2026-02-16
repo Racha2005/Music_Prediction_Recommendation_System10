@@ -331,18 +331,19 @@ with tab2:
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
         try:
-        img_filename = f"{selected}.jpg"
-        img_path = os.path.join(ASSETS_DIR, img_filename)
+    img_filename = f"{selected}.jpg"
+    img_path = os.path.join(ASSETS_DIR, img_filename)
 
-        if os.path.exists(img_path):
+    if os.path.exists(img_path):
         img1 = Image.open(img_path)
     else:
         st.warning(f"Image not found: {img_filename}")
         img1 = None
 
-    except Exception as e:
+except Exception as e:
     st.error(f"Image loading error: {e}")
     img1 = None
+
 
 
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
