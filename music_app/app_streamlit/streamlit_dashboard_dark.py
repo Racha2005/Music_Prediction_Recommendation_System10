@@ -331,6 +331,7 @@ with tab2:
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
 
+        # LOAD SELECTED IMAGE FROM ASSETS FOLDER
         try:
             img_filename = os.path.basename(selected)
             img_path = os.path.join(ASSETS_DIR, img_filename)
@@ -345,17 +346,16 @@ with tab2:
             st.error(f"Image loading error: {e}")
             img1 = None
 
-
-
+        # HASH MATCHING
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
-        # COMPUTE SIMILARITY
         def dist(h1, h2):
             return imagehash.hex_to_hash(h1) - imagehash.hex_to_hash(h2)
 
         df_hash["distance"] = df_hash["hash"].apply(lambda h: dist(hash1, h))
         df_sorted = df_hash.sort_values("distance")
 
+        # LOAD MOST SIMILAR IMAGE FROM ASSETS
         similar_file = df_sorted.iloc[1]["file"]
         similar_filename = os.path.basename(similar_file)
         similar_path = os.path.join(ASSETS_DIR, similar_filename)
@@ -369,8 +369,16 @@ with tab2:
         sim_d = df_sorted.iloc[1]["distance"]
 
         colA, colB = st.columns(2)
-        colA.image(img1, caption="Selected", use_container_width=True)
-        colB.image(img2, caption=f"Most Similar (distance={sim_d})", use_container_width=True)
+
+        if img1 is not None:
+            colA.image(img1, caption="Selected", use_container_width=True)
+        else:
+            colA.warning("Selected image not available")
+
+        if img2 is not None:
+            colB.image(img2, caption=f"Most Similar (distance={sim_d})", use_container_width=True)
+        else:
+            colB.warning("Similar image not available")
 
     else:
         st.info("Run image_hashing.py to generate image_hashes.csv")
