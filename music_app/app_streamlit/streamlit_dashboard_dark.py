@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 from PIL import Image
 import os
+BASE_DIR = os.path.dirname(os.path.abspath(file))
+ASSETS_DIR = os.path.join(BASE_DIR, "..", "assets")
 import imagehash
 
 # ---------------------------
@@ -328,7 +330,8 @@ with tab2:
 
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
-        img1 = Image.open(os.path.join("music_app", "assets", selected))
+        img_path = os.path.join(ASSETS_DIR, selected)
+        img1 = Image.open(img_path)
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
         # COMPUTE SIMILARITY
