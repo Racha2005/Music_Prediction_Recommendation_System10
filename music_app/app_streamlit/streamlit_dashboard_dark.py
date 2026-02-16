@@ -328,7 +328,7 @@ with tab2:
 
         # SELECTED IMAGE
         selected = st.selectbox("Select artwork", df_hash["file"].tolist())
-        img1 = Image.open(selected)
+        img1 = Image.open(os.path.join("music_app", "assets", selected))
         hash1 = df_hash[df_hash["file"] == selected]["hash"].iloc[0]
 
         # COMPUTE SIMILARITY
